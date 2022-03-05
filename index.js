@@ -1,0 +1,62 @@
+var i=0;
+for(i=0;i<7;i++)
+{
+  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+    var x =this.innerHTML;
+    s(x);
+    ss(x);
+  });
+
+}
+
+document.addEventListener("keydown",function(e) {
+  s(e.key);
+  ss(e.key);
+});
+
+function s(e){
+  switch (e) {
+    case "w":
+      var tom1= new Audio("sounds/tom-1.mp3");
+      tom1.play();
+      break;
+    case "a":
+      var tom2= new Audio("sounds/tom-2.mp3");
+      tom2.play();
+      break;
+    case "s":
+      var tom3= new Audio("sounds/tom-3.mp3");
+      tom3.play();
+      break;
+    case "d":
+      var tom4= new Audio("sounds/tom-4.mp3");
+      tom4.play();
+      break;
+    case "j":
+    var crash= new Audio("sounds/crash.mp3");
+    crash.play();
+    break;
+    case "k":
+    var snare= new Audio("sounds/snare.mp3");
+    snare.play();
+    break;
+
+    case "l":
+      var kick= new Audio("sounds/kick-bass.mp3");
+      kick.play();
+      break;
+    default:
+      alert("Not a valid button");
+      break;
+
+  }
+}
+function ss(key){
+  var act =  document.querySelector("."+key);
+  act.classList.add("pressed");
+  setTimeout(function(){
+    act.classList.remove("pressed");
+  },.100);
+
+
+}
